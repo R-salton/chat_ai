@@ -1,4 +1,4 @@
-name: chatx
+name: chat_ai
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -19,6 +19,7 @@ dependencies:
   get_it: ^8.0.3
   quickalert: ^1.1.0
   supabase_flutter: ^2.8.2
+  flutter_screenutil:
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -32,13 +33,13 @@ flutter:
     - assets/fonts/
     - assets/vectors/
   fonts:
-    - family: CircularStd
+    - family: Axiforma
       fonts:
-        - asset: assets/fonts/CircularStd-Black.ttf
+        - asset: assets/fonts/Axiforma-Black.ttf
           weight: 800
-        - asset: assets/fonts/CircularStd-Bold.ttf
+        - asset: assets/fonts/Axiforma-Bold.ttf
           weight: 700
-        - asset: assets/fonts/CircularStd-Medium.ttf
+        - asset: assets/fonts/Axiforma-Medium.ttf
           weight: 500
-        - asset: assets/fonts/CircularStd-Regular.ttf
+        - asset: assets/fonts/Axiforma-Regular.ttf
           weight: 400

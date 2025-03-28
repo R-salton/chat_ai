@@ -1,10 +1,10 @@
 
 
-
-
-import 'package:chatx/core/theme/app_colors.dart';
-import 'package:chatx/presentation/widgets/onboarding_widget.dart';
+import 'package:chat_ai/core/theme/app_colors.dart';
+import 'package:chat_ai/presentation/splash/last_splash.dart';
+import 'package:chat_ai/presentation/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,47 +23,54 @@ class _SplashScreenState extends State<SplashScreen> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: AppColors.background,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            
-            Container(
-              height: 150,
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: onboards.length,
-                onPageChanged: (index) => {
-                  setState(() {
-                    _pageIndex = index;
-                  })
-                },
-                itemBuilder: (context, index) => Onboarding(
-                    title: onboards[index].title,
-                    description: onboards[index].description,
-                    image: onboards[index].image),
-              ),
-            ),
-        
-             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ...List.generate(
-                    onboards.length,
-                    (index) => Padding(
-                          padding: const EdgeInsets.only(right: 4),
-                          child: DotIndicator(isActive: index == _pageIndex),
-                        )),
-                
-                
-                   
-              ],
-            ),
-            // SizedBox(
-            //   height: 50,
-            // )
+        body:_pageIndex == 3 ? LastSplash() : Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+          child: Column(
            
-          ],
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              
+              SizedBox(
+                height: 350.h,
+                child: Expanded(
+                  flex: 5,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: onboards.length,
+                    onPageChanged: (index) => {
+                      setState(() {
+                        _pageIndex = index;
+                      })
+                    },
+                    itemBuilder: (context, index) => Onboarding(
+                        title: onboards[index].title,
+                        description: onboards[index].description,
+                        image: onboards[index].image),
+                  ),
+                ),
+              ),
+         
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ...List.generate(
+                      onboards.length-1,
+                      (index) => Padding(
+                            padding: const EdgeInsets.only(right: 4),
+                            child: DotIndicator(isActive: index == _pageIndex),
+                          )),
+                  
+                  
+                     
+                ],
+                             ),
+              SizedBox(
+                height: 60,
+              )
+             
+            ],
+          ),
         ),
       ),
     );
@@ -81,7 +88,7 @@ class DotIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height:4,
-      width: 100,
+      width: 80,
       decoration: BoxDecoration(
           color: isActive ? AppColors.primary : AppColors.secondBackground,
           borderRadius: BorderRadius.all(Radius.circular(12))),
@@ -104,21 +111,22 @@ class Onboard {
 // Onbording Data List
 final List<Onboard> onboards = [
   Onboard(
-    title: "Stay Updated with Tech Trends",
+    title: "Intelligent, humble language model, limitless knowledge.",
     description:
-        'Get the latest updates on cutting-edge technology, gadgets, and innovations—right at your fingertips.',
+        'Interact with your AI assistant to get the better choice in writing',
     image: 'assets/vectors/chat-gpt.svg',
   ),
   Onboard(
-    title: "Expert Insights & Reviews",
+    title: "Next-gen AI language model, limitless potential.",
     description:
-        'Dive into detailed reviews and expert opinions on the newest tech products and software.',
+        'Interact with your AI assistant to get the better choice in writing',
     image: 'assets/vectors/chat-gpt.svg',
   ),
   Onboard(
-    title: "Join a Community of Tech Enthusiasts",
+    title: "Wise, knowledgeable AI, shaping communication future.",
     description:
-        'Connect, share, and discuss the future of technology with like-minded readers.',
+        'Interact with your AI assistant to get the better choice in writing.',
     image: 'assets/vectors/chat-gpt.svg',
   ),
+  Onboard(title: "Revolutionary AI language model, transforming communication.", description:"Remembers what user said earlier in the conversation" , image: 'assets/vectors/chat-gpt.svg'),
 ];

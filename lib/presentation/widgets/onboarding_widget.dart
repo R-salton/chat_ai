@@ -1,6 +1,7 @@
-import 'package:chatx/core/theme/app_colors.dart';
-import 'package:chatx/core/theme/app_theme.dart';
+import 'package:chat_ai/core/theme/app_colors.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -26,24 +27,29 @@ class Onboarding extends StatelessWidget {
      
         SvgPicture.asset(
           image,
-          width: 200,
-          height: 300,
+          width: 90.h,
+          height: 90.h,
         ), 
-        
+        SizedBox(
+          height: 20.h,
+        ),
         Text(
           textAlign: TextAlign.center,
           title,
           style: TextStyle(
-              fontSize: 24,
+              fontSize: 24.sp,
               color: AppColors.secondBackground,
               fontWeight: FontWeight.w500),
          
+        ),
+        SizedBox(
+          height: 50.h,
         ),
         Text(
           textAlign: TextAlign.center,
           description,
           style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: AppColors.secondBackground,
               fontWeight: FontWeight.w500),
         ),

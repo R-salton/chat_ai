@@ -1,13 +1,18 @@
-import 'package:chatx/core/theme/app_theme.dart';
-import 'package:chatx/presentation/splash/splash_screen.dart';
+import 'package:chat_ai/core/theme/app_theme.dart';
+import 'package:chat_ai/presentation/splash/splash_screen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   
-  runApp(const MainApp());
+  runApp(ScreenUtilInit(
+    designSize: const Size(375, 812),
+    builder: (context,child) => const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -18,9 +23,9 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
-      home: Scaffold(
-        body: SplashScreen(),
-      ),
+      home:
+         SplashScreen()
+      
     );
   }
 }
