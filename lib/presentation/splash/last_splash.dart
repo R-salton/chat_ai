@@ -1,21 +1,50 @@
 import 'package:chat_ai/core/theme/app_colors.dart';
+import 'package:chat_ai/presentation/pages/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class LastSplash extends StatelessWidget {
+class LastSplash extends StatefulWidget {
   const LastSplash({super.key});
 
   @override
+  State<LastSplash> createState() => _LastSplashState();
+}
+
+class _LastSplashState extends State<LastSplash> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+    
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                 SvgPicture.asset(
+                  "assets/vectors/chat-gpt.svg",
+                  width: 60.w,
+                  height: 60.h,
+                 ),
+                  Text(
+                    textAlign: TextAlign.center,
+                    'Chat AI',
+                    style: TextStyle(
+                        fontSize: 30.sp,
+                        color: AppColors.secondBackground,
+                        fontWeight: FontWeight.w500),
+                  ),
+
+                  SizedBox(height: 30.h,)
+                ],
+              ),
+              
+              
               Column(
                 children: [
                    Text(
@@ -40,19 +69,18 @@ class LastSplash extends StatelessWidget {
                   fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
-              height: 20.h,
+              height: 40.h,
                             ),
-                            
-                ],
-              ),
-              Container(
+
+                             Container(
                 child: Column(
                   children: [
 Image.asset(
                 'assets/images/energy.png',
-                width: 100.w,
-                height: 100.h,
+                width: 40.w,
+                height: 40.h,
               ),
+              SizedBox(height: 10.h,),
               Text("Capabilities",style: TextStyle(
                   fontSize: 18.sp,
                   color: AppColors.secondBackground,
@@ -91,13 +119,20 @@ Image.asset(
                   ],
                 ),
               ),
+                            
+                ],
+              ),
+             
 
               
              
               
               GestureDetector(
                 onTap: () {
-                  
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
                 },
                 child: Container(
                   alignment: Alignment.center,

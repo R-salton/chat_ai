@@ -19,10 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: AppColors.background,
+    return 
+
+      Scaffold(
+        // backgroundColor: AppColors.background,
         body:_pageIndex == 3 ? LastSplash() : Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
           child: Column(
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ],
           ),
         ),
-      ),
+      
     );
   }
 }

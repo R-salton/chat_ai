@@ -22,9 +22,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.appTheme,
-      home:
-         SplashScreen()
+      theme: AppTheme.darkTheme,
+      home: SplashScreen()
       
     );
   }
